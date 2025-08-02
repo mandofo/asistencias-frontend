@@ -5,7 +5,7 @@ function GruposPage() {
   const [grupos, setGrupos] = useState([]);
 
   useEffect(() => {
-    axios.get('http://148.230.84.158:8080/grupos')
+    axios.get('http://148.230.84.158:8080/api/grupos')
       .then(response => {
         setGrupos(response.data);
       })
