@@ -9,6 +9,7 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 
+RUN npm install bootstrap
 # Compila la aplicación para producción
 RUN npm run build
 
