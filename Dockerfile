@@ -10,6 +10,9 @@ RUN npm install
 COPY . .
 
 RUN npm install bootstrap
+RUN npm install react-router-dom
+RUN npm install axios
+
 # Compila la aplicación para producción
 RUN npm run build
 
