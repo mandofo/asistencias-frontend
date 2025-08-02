@@ -12,15 +12,15 @@ const AsistenciasPage = () => {
   const API_BASE = 'http://148.230.84.158:8080';
 
   useEffect(() => {
-    axios.get(`${API_BASE}/grupos`).then(res => setGrupos(res.data));
+    axios.get(`${API_BASE}/api/grupos`).then(res => setGrupos(res.data));
   }, []);
 
   const handleBuscar = async () => {
-    const alumnosRes = await axios.get(`${API_BASE}/alumnos/grupo/${grupoId}`);
+    const alumnosRes = await axios.get(`${API_BASE}/api/alumnos/grupo/${grupoId}`);
     const alumnosGrupo = alumnosRes.data;
     setAlumnos(alumnosGrupo);
 
-    const asistenciasRes = await axios.get(`${API_BASE}/asistencias/${grupoId}/${fecha}`);
+    const asistenciasRes = await axios.get(`${API_BASE}/api/asistencias/grupo/${grupoId}/${fecha}`);
     const datos = asistenciasRes.data;
 
     const merged = alumnosGrupo.map(alumno => {
@@ -43,7 +43,7 @@ const AsistenciasPage = () => {
   };
 
   const handleGuardar = async () => {
-    await axios.post(`${API_BASE}/asistencias`, asistencias);
+    await axios.post(`${API_BASE}/grupo/asistencias`, asistencias);
     alert('Asistencias guardadas');
   };
 
