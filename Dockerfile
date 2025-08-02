@@ -6,6 +6,7 @@ WORKDIR /app
 
 # Copia los archivos del proyecto React
 COPY package*.json ./
+RUN npm cache clean --force
 RUN npm install
 COPY . .
 
